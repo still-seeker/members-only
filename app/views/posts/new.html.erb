@@ -1,4 +1,5 @@
 <%= form_with model: @post do |form| %>
+
     <% if form.errors.any? %>
         <div>
             <h2><%= pluralize(form.errors.count, "error")%> 
@@ -12,7 +13,12 @@
         </div>
     <% end %>
 
-    <% form.text_area :title%>
-    <% form.text_area :body, placeholder: "What's on your mind?" %>
-    <% form.submit %>
+    <div>
+        <%= form.text_area :title%>
+        <%= form.text_area :body, placeholder: "What's on your mind?" %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
 <% end %>
