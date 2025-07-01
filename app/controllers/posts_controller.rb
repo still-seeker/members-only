@@ -6,8 +6,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.author_id = current_member.id
+
     if @post.save
-      redirect_to @post
+      redirect_to @posts_path, notice: "Post was successfully created"
     else
       render :new, status: :unprocessable_entity
     end
