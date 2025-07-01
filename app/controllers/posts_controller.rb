@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_member!, only: [ :new, :create ]
 
   def new
-    @post = current_member.posts.new
+    @post = Post.new
   end
 
   def create
@@ -15,5 +15,6 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all
   end
 end
