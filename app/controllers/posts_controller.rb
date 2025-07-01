@@ -6,11 +6,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.author_id = current_member.id
+    @post = current_member.posts.build(post_params)
 
     if @post.save
-      redirect_to posts_path, notice: "Post was successfully created"
+      redirect_to @post, notice: "Post was successfully created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,6 +21,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.expect(post: [ :title, :content, :author_id ])
+      params.expect(post: [ :title, :content ])
     end
 end
