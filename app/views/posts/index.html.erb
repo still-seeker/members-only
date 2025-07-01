@@ -1,11 +1,11 @@
 <h1>Posts</h1>
 
-<%= link_to "New product", new_product_path %>
+<%= link_to "New Post", new_post_path %>
 
 <div id="posts">
     <% @posts.each do |post| %>
         <div>
-            <% link_to product.body, product %>
+            <% link_to post.body, post %>
         </div>
     <% end %>
 </div>
