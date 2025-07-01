@@ -6,15 +6,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_member.posts.new
+    @post = Post.new(post_params)
     if @post.save
-      redirect_to index_path
+      redirect_to @post
     else
-      render "new"
+      render :new, status: :unprocessable_entity
     end
   end
 
   def index
     @posts = Post.all
   end
+
+  private
+    def post_params
+      params.expect(post: [ :body ])
+    end
 end
