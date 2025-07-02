@@ -9,7 +9,7 @@
                 <%= button_to 'sign out', destroy_member_session_path, method: :delete, class: "btn btn-outline-danger" %>
             <% else %>
                 <p>Join the clubhouse to see the authors of the posts</p>
-                <p>Already have an account? <%= button_to "Check in", new_member_session_path %></p>
+                <p>Already a member? <%= button_to "Check in", new_member_session_path %></p>
                 <p>OR</p>
                 <%= link_to "Join Club", new_member_registration_path, class: "btn btn-primary" %> 
             <% end %>
