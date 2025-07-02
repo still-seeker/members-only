@@ -4,13 +4,13 @@
 
         <div class="member-info">
             <% if member_signed_in? %>
-                <p>Hi, <%= current_member.name %>!</p>
-                <%= link_to 'share a post', new_post_path %>
-                <%= link_to 'sign out', destroy_member_session_path, method: :delete, class: "btn btn-outline-danger" %>
+                <p>Hi, <%= current_member.email %>!</p>
+                <%= button_to 'share a post', new_post_path %> <br>
+                <%= button_to 'sign out', destroy_member_session_path, method: :delete, class: "btn btn-outline-danger" %>
             <% else %>
                 <p>Join the clubhouse to see the authors of the posts</p>
-                <%= link_to "Sign Up", new_member_session_path, class: "btn btn-primary" %>
-                <%= link_to "Join Club", new_member_registration_path, class: "btn btn-success" %>
+                <%= button_to "Sign Up", new_member_session_path, class: "btn btn-primary" %> <br>
+                <%= button_to "Join Club", new_member_registration_path, class: "btn btn-success" %>
             <% end %>
         </div>
     </div>
@@ -21,10 +21,10 @@
         <% @posts.each do |post| %>
             <div>
                 <h3><%= post.title %></h3>
-                <p><%= post.body %></p>
+                <p><%= post.content %></p>
             </div>
             <% if member_signed_in? %>
-                <p><em>Posted by: <% post.member.name %></em></p>
+                <p><em>Posted by: <% post.member %></em></p> 
             <% end %>
         <% end %>
     </div>
