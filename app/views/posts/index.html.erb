@@ -4,7 +4,7 @@
 
         <div class="member-info">
             <% if member_signed_in? %>
-                <p>Hi, <%= current_member.email %>!</p>
+                <p>Hi, <strong><%= current_member.name %></strong>!</p>
                 <button><%= link_to 'share a post', new_post_path %></button><br> <br>
                 <%= button_to 'sign out', destroy_member_session_path, method: :delete, class: "btn btn-outline-danger" %>
             <% else %>
