@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :members do
-    get "/members/sign_out" => "devise/sessions#destroy"
-  end
+  devise_for :members
   get "up" => "rails/health#show", as: :rails_health_check
 
 
