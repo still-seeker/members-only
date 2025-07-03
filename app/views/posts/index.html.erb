@@ -22,7 +22,7 @@
         <% @posts.each do |post| %>
             <div>
                 <h3><%= post.title %></h3>
-                <p><%= post.content %></p><span><%= post.created_at%></span>
+                <p><%= post.content %></p><span>posted <%= time_ago_in_words(post.created_at) %>ago</span>
             </div>
             <% if member_signed_in? %>
                 <p><em>Posted by: <%= post.member.name %></em></p> 
