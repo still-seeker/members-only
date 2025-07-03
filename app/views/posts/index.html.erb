@@ -25,7 +25,7 @@
                 <p><%= post.content %></p><span>posted <%= time_ago_in_words(post.created_at) %>ago</span>
             </div>
             <% if member_signed_in? %>
-                <p><em>Posted by: <%= post.member.name %></em></p> 
+                <p><em> By: <%= post.member.name %></em></p> 
             <% end %>
         <% end %>
     </div>
